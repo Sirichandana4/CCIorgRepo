@@ -1,0 +1,27 @@
+minimum_cumulusci_version: '3.80.0'
+project:
+    name: CCIorgRepo
+    package:
+        name: CCIorgRepo
+        api_version: '55.0'
+    dependencies:
+        - github: 'https://github.com/SalesforceFoundation/NPSP'
+    git:
+        default_branch: 'main'
+    source_format: sfdx
+
+tasks:
+    robot:
+        options:
+            suites: robot/CCIorgRepo/tests
+            options:
+                outputdir: robot/CCIorgRepo/results
+
+    robot_testdoc:
+        options:
+            path: robot/CCIorgRepo/tests
+            output: robot/CCIorgRepo/doc/CCIorgRepo_tests.html
+
+    run_tests:
+        options:
+            required_org_code_coverage_percent: 75
